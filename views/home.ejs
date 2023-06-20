@@ -1,0 +1,34 @@
+
+<html>
+  <head>
+    <title>
+      <%= title %>
+    </title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/home.css">
+<script src="https://kit.fontawesome.com/8b5ce79d0d.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <h1>Todo List App</h1>
+    <div id="container">
+    <form action="/create-task" method="POST">
+        <!-- here the name attribute is used to identify the data in the object which will be created for a perticular function -->
+        <input type="text" name="task"class="add-task" id="add">
+      <ul id="list">
+              <% for(let i of task_list){%>
+                <li>
+                  <p><%=i.task%></p>
+                  <a href="/delete-task/?id=<%= i._id %>">
+                    <i class="fas fa-trash"></i>
+                </a>
+                </li>
+
+                <%}%>
+      </ul>
+
+
+    </form>
+    </div>
+  </body>
+</html>
